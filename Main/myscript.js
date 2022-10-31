@@ -25,28 +25,33 @@ var saveBtn = $('.saveBtn')
 saveBtn.on('click', function (e) {
     e.preventDefault
 
-    var userInput = $(this).prev().val()
+    var userInput = $(this).prev().val().trim()
     var hour = $(this).prev().prev().text()
 
     localStorage.setItem(hour, userInput)
+    $('.notification').addClass('show')
+    setTimeout(function () { $('.notification').removeClass('show') }, 3000)
 })
 
-function currentTime(){
+
+
+function currentTime() {
     var rightNow = moment().hour()
     console.log(rightNow) // gives you hours in 24
     // var checkHour = parseInt($('.time-block').attr('id').split('-')[1])
-    
-    var timeBlock = $('.time-block')
-    console.log(timeBlock)
-    for (let i = 0; i < checkHour.length; i++) {
-        const element = checkHour[i];
-        
-    }
-    console.log(checkHour)
-}
-//user input has to remain everytime browser is opened
 
-//need the gray, red, and green
-//gray represents time past
-//red is now
-//green is in the future
+    var timeBlock = $('.time-block')
+    for (let i = 0; i < timeBlock.length; i++) {
+        var currentBlock = timeBlock[i];
+        if (timeBlock === rightNow) {
+            $(this).addClass('present');
+            $(this).removeClass('past')
+        } else if (timeBlock < rightNow) {
+            $(this).addClass('past');
+        } else {
+            $(this).removeClass('past');
+            $(this).removeClass('present');
+            $(this).addClass('future');
+        }
+    }
+}
