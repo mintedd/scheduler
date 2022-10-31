@@ -1,7 +1,7 @@
 //add "todays date" in header
 $(document).ready(function () {
     init();
-    currentTime()
+    currentTime();
 })
 
 var currentDate = moment().format('dddd MMMM Do YYYY, h:mm a');
