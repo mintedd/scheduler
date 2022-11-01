@@ -26,5 +26,5 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-[website]()
-![alt]
+[website](https://mintedd.github.io/scheduler/)
+![alt](Screen%20Shot%202022-10-31%20at%2010.26.41%20PM.png)
